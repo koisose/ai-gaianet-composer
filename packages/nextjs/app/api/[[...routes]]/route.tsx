@@ -14,7 +14,7 @@ import {
 } from "~~/lib/gaianet";
 import { getDataById, saveData } from "~~/lib/mongo";
 import { parseString } from "~~/lib/parseString";
-
+import { generateImage } from '~~/lib/create-image'
 const app = new Frog({
   // imageAspectRatio: '1:1',
   hub: {
@@ -60,14 +60,11 @@ app.composerAction(
 app.frame("/roastorpraise/:id", async c => {
   const id = c.req.param("id");
 
-  const data = await getDataById("roastorpraise", id);
+ 
   // return c.json(data)
   return c.res({
-    image: (
-      <Box fontSize="20" textAlign="center">
-        {data.message}
-      </Box>
-    ),
+    imageAspectRatio:"1:1",
+    image: `https://${process.env.MINIO_ENDPOINT}/image/file-${id}`,
     intents: [
       (
         <Button.Redirect
@@ -127,6 +124,7 @@ app.hono.post("/savedata", async c => {
     { username: data.username, creator: data.creator, type: data.type, message: data.message },
     "roastorpraise",
   );
+  await generateImage("/screenshot/" + id._id.toString(), id._id.toString())
   return c.json({ id: id._id.toString() });
 });
 app.hono.get("/getuserfid/:fid", async c => {

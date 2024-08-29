@@ -8,7 +8,7 @@ import type { NextPage } from "next";
 import { generateRoastOrPraise, getParseString, getUserByFid, savedata } from "~~/lib/gaianet";
 import "~~/styles/hide.css";
 import { notification } from "~~/utils/scaffold-eth";
-
+import { Input } from "~~/components/ui/input"
 const Home: NextPage = () => {
   const searchParams = useSearchParams();
   const inputRef = useRef(null);
@@ -33,18 +33,17 @@ const Home: NextPage = () => {
   return (
     <>
       <div className="flex flex-col items-center justify-center ">
-        <h1 className="text-4xl font-bold text-white">Roast or Praise Farcaster user</h1>
-        <p className="mt-4 text-lg text-white">Input farcaster username</p>
+        <h1 className="text-4xl font-bold ">Roast or Praise Farcaster user</h1>
+        <p className="mt-4 text-lg ">Input farcaster username</p>
       </div>
       <div className="flex flex-col items-center justify-center ">
-        <input
-          ref={inputRef}
+      <Input ref={inputRef}
           disabled={loading}
           type="text"
           value={parsedString?.mentionsUsername.length > 0 ? parsedString.mentionsUsername[0] : "" || (user as any)}
           onChange={e => setUsername(e.target.value)}
-          className="border border-gray-400 px-4 py-2 rounded-md"
-        />
+          className="border border-gray-400 mx-4 py-2 rounded-md w-[500px]" placeholder="farcaster username" />
+        
         <div className="mt-4 flex space-x-4">
           <button
             disabled={loading}
@@ -102,8 +101,8 @@ const Home: NextPage = () => {
               onClick={async () => {
                 setLoading(true);
                 const url = process.env.NEXT_PUBLIC_URL;
-
-                savedata(user, creator, type, generated)
+//@ts-ignore
+                savedata(inputRef?.current?.value || (user as string), creator.users[0].username, type, generated)
                   .then(data => {
                     postComposerCreateCastActionMessage({
                       text: `${originalText} ${url}/api/roastorpraise/${data.id}` as string,
@@ -119,7 +118,7 @@ const Home: NextPage = () => {
               }}
               className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded w-24"
             >
-              Share
+              {loading ? "loading..." : "Share"}
             </button>
           </div>
         </>
