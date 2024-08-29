@@ -1983,6 +1983,8 @@ __metadata:
     axios: ^1.7.5
     blo: ~1.0.1
     burner-connector: ~0.0.8
+    class-variance-authority: ^0.7.0
+    clsx: ^2.1.1
     daisyui: 4.5.0
     eslint: ~8.24.0
     eslint-config-next: ~14.0.4
@@ -1992,6 +1994,7 @@ __metadata:
     groq-sdk: ^0.5.0
     hono: ^4.5.9
     ky: ^1.7.1
+    lucide-react: ^0.436.0
     mongoose: ^8.5.4
     next: ~14.0.4
     next-themes: ~0.2.1
@@ -2003,7 +2006,9 @@ __metadata:
     react-copy-to-clipboard: ~5.1.0
     react-dom: ~18.2.0
     react-hot-toast: ~2.4.0
+    tailwind-merge: ^2.5.2
     tailwindcss: ~3.4.3
+    tailwindcss-animate: ^1.0.7
     type-fest: ~4.6.0
     typescript: 5.5.3
     use-debounce: ~8.0.4
@@ -4295,6 +4300,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"class-variance-authority@npm:^0.7.0":
+  version: 0.7.0
+  resolution: "class-variance-authority@npm:0.7.0"
+  dependencies:
+    clsx: 2.0.0
+  checksum: e7fd1fab433ef06f52a1b7b241b70b4a185864deef199d3b0a2c3412f1cc179517288264c383f3b971a00d76811625fc8f7ffe709e6170219e88cd7368f08a20
+  languageName: node
+  linkType: hard
+
 "clean-stack@npm:^2.0.0":
   version: 2.2.0
   resolution: "clean-stack@npm:2.2.0"
@@ -4371,6 +4385,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"clsx@npm:2.0.0":
+  version: 2.0.0
+  resolution: "clsx@npm:2.0.0"
+  checksum: a2cfb2351b254611acf92faa0daf15220f4cd648bdf96ce369d729813b85336993871a4bf6978ddea2b81b5a130478339c20d9d0b5c6fc287e5147f0c059276e
+  languageName: node
+  linkType: hard
+
 "clsx@npm:2.1.0":
   version: 2.1.0
   resolution: "clsx@npm:2.1.0"
@@ -4382,6 +4403,13 @@ __metadata:
   version: 1.2.1
   resolution: "clsx@npm:1.2.1"
   checksum: 30befca8019b2eb7dbad38cff6266cf543091dae2825c856a62a8ccf2c3ab9c2907c4d12b288b73101196767f66812365400a227581484a05f968b0307cfaf12
+  languageName: node
+  linkType: hard
+
+"clsx@npm:^2.1.1":
+  version: 2.1.1
+  resolution: "clsx@npm:2.1.1"
+  checksum: acd3e1ab9d8a433ecb3cc2f6a05ab95fe50b4a3cfc5ba47abb6cbf3754585fcb87b84e90c822a1f256c4198e3b41c7f6c391577ffc8678ad587fc0976b24fd57
   languageName: node
   linkType: hard
 
@@ -8180,6 +8208,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lucide-react@npm:^0.436.0":
+  version: 0.436.0
+  resolution: "lucide-react@npm:0.436.0"
+  peerDependencies:
+    react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0-rc
+  checksum: 3ec00f7dda9df2888b392f22227545719e9aa90484bd9d9e91cf930932e718137372b4bb9980af2e62c030565747d28725c3a156fea88a19e707008c59aafa7b
+  languageName: node
+  linkType: hard
+
 "lz-string@npm:^1.5.0":
   version: 1.5.0
   resolution: "lz-string@npm:1.5.0"
@@ -11188,6 +11225,22 @@ __metadata:
   version: 0.1.0
   resolution: "system-architecture@npm:0.1.0"
   checksum: ca0dd793c45c354ab57dd7fc8ce7dc9923a6e07382bd3b22eb5b08f55ddb0217c390d00767549c5155fd4ce7ef23ffdd8cfb33dd4344cbbd37837d085a50f6f0
+  languageName: node
+  linkType: hard
+
+"tailwind-merge@npm:^2.5.2":
+  version: 2.5.2
+  resolution: "tailwind-merge@npm:2.5.2"
+  checksum: af745fc16245ac14eb5d3f0b9d076c024321877ad45f43b324465f6aa7f8b5de3816640594fbf6ac8b3500f70ff2687345787888744196ff6f82dfe9a1f99b97
+  languageName: node
+  linkType: hard
+
+"tailwindcss-animate@npm:^1.0.7":
+  version: 1.0.7
+  resolution: "tailwindcss-animate@npm:1.0.7"
+  peerDependencies:
+    tailwindcss: "*"
+  checksum: c1760983eb3fec0c8421e95082bf308e6845df43e2f90862386366e82545c801b26b4d189c4cd23d6915252b76d18005c8e5f591f8b119944c7fb8650d0f8bce
   languageName: node
   linkType: hard
 
