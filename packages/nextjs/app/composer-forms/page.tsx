@@ -9,6 +9,8 @@ import { generateRoastOrPraise, getParseString, getUserByFid, savedata } from "~
 import "~~/styles/hide.css";
 import { notification } from "~~/utils/scaffold-eth";
 import { Input } from "~~/components/ui/input"
+import ShimmerButton from "~~/components/magicui/shimmer-button";
+import { Loader2 } from "lucide-react"
 const Home: NextPage = () => {
   const searchParams = useSearchParams();
   const inputRef = useRef(null);
@@ -37,15 +39,15 @@ const Home: NextPage = () => {
         <p className="mt-4 text-lg ">Input farcaster username</p>
       </div>
       <div className="flex flex-col items-center justify-center ">
-      <Input ref={inputRef}
+        <Input ref={inputRef}
           disabled={loading}
           type="text"
           value={parsedString?.mentionsUsername.length > 0 ? parsedString.mentionsUsername[0] : "" || (user as any)}
           onChange={e => setUsername(e.target.value)}
           className="border border-gray-400 mx-4 py-2 rounded-md w-[500px]" placeholder="farcaster username" />
-        
+
         <div className="mt-4 flex space-x-4">
-          <button
+          <ShimmerButton
             disabled={loading}
             onClick={async () => {
               setLoading(true);
@@ -62,12 +64,13 @@ const Home: NextPage = () => {
               }
               setLoading(false);
             }}
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-          >
-            {loading ? "loading..." : "Roast"}
-          </button>
-          <button
-            onClick={async () => {
+          className="shadow-2xl" background="blue">
+            <span className="whitespace-pre-wrap  text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg">
+            {loading?<Loader2 className="mr-2 h-4 w-4 animate-spin" />:"Roast"}
+            </span>
+          </ShimmerButton>
+          <ShimmerButton 
+             onClick={async () => {
               setLoading(true);
               setGenerated("");
               setType("praise");
@@ -83,10 +86,12 @@ const Home: NextPage = () => {
               setLoading(false);
             }}
             disabled={loading}
-            className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
-          >
-            {loading ? "loading..." : "Praise"}
-          </button>
+          className="shadow-2xl" background="green">
+            <span className="whitespace-pre-wrap  text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg">
+              {loading?<Loader2 className="mr-2 h-4 w-4 animate-spin" />:"Praise"}
+            </span>
+          </ShimmerButton>
+        
         </div>
       </div>
       {generated.length > 0 && (
@@ -97,11 +102,11 @@ const Home: NextPage = () => {
             </div>
           </div>
           <div className="flex justify-center my-5">
-            <button
+            <ShimmerButton 
               onClick={async () => {
                 setLoading(true);
                 const url = process.env.NEXT_PUBLIC_URL;
-//@ts-ignore
+                //@ts-ignore
                 savedata(inputRef?.current?.value || (user as string), creator.users[0].username, type, generated)
                   .then(data => {
                     postComposerCreateCastActionMessage({
@@ -116,10 +121,10 @@ const Home: NextPage = () => {
                     notification.error("sorry there is an error in our end please try again");
                   });
               }}
-              className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded w-24"
+              background="purple"
             >
-              {loading ? "loading..." : "Share"}
-            </button>
+              {loading?<Loader2 className="mr-2 h-4 w-4 animate-spin" />:"Share"}
+            </ShimmerButton >
           </div>
         </>
       )}

@@ -1,4 +1,10 @@
-# 🏗 Scaffold-ETH 2
+# 🏗 Scaffold-ETH 2 Farcaster Composer Action
+
+I'm creating an ai praiser or roaster of farcaster user using farcaster composer action the ai is also decentralized i'm using https://www.gaianet.ai/
+
+This is the demo composer action need to be reviewed by horserfacts.eth before it can be use globally inside farcaster so for the demo you need to go to here https://warpcast.com/~/developers/composer-actions?postUrl=https%3A%2F%2Fgaianet.koisose.lol%2Fapi%2Froaster i'll also give you demo video below:
+
+https://www.youtube.com/watch?v=dGRjv4f5zsY
 
 <h4 align="center">
   <a href="https://docs.scaffoldeth.io">Documentation</a> |
